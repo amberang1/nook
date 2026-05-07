@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-container-lowest: #000000;
+  --color-on-secondary: #13231d;
+  --color-inverse-on-surface: #565555;
+  --color-primary-fixed: #ffe088;
+  --color-primary-dim: #dab53d;
+  --color-tertiary-fixed: #d9eafe;
+  --color-surface-container: #191a1a;
+  --color-on-tertiary-fixed: #354454;
+  --color-on-primary-fixed-variant: #705900;
+  --color-tertiary-fixed-dim: #cbdcef;
+  --color-error: #ee7d77;
+  --color-error-dim: #bb5551;
+  --color-surface-container-high: #1f2020;
+  --color-on-primary-container: #f4cc52;
+  --color-inverse-primary: #745c00;
+  --color-surface-container-low: #131313;
+  --color-inverse-surface: #fcf9f8;
+  --color-secondary-fixed-dim: #c6d9cf;
+  --color-secondary-container: #2e3f38;
+  --color-tertiary-container: #d9eafe;
+  --color-tertiary: #f2f7ff;
+  --color-surface-bright: #2b2c2c;
+  --color-on-surface-variant: #ababab;
+  --color-error-container: #7f2927;
+  --color-on-secondary-fixed-variant: #4e5f57;
+  --color-primary: #e9c349;
+  --color-tertiary-dim: #cbdcef;
+  --color-on-primary-fixed: #4e3d00;
+  --color-primary-container: #574500;
+  --color-surface-container-highest: #252626;
+  --color-on-background: #e6e5e5;
+  --color-on-secondary-container: #b1c4ba;
+  --color-on-error-container: #ff9993;
+  --color-on-secondary-fixed: #32433b;
+  --color-outline-variant: #474848;
+  --color-on-tertiary: #4f5f70;
+  --color-surface-variant: #252626;
+  --color-surface-dim: #0e0e0e;
+  --color-primary-fixed-dim: #f8d056;
+  --color-on-surface: #e6e5e5;
+  --color-surface-tint: #e9c349;
+  --color-secondary-fixed: #d4e7dc;
+  --color-secondary: #90a299;
+  --color-surface: #0e0e0e;
+  --color-secondary-dim: #90a299;
+  --color-outline: #757575;
+  --color-background: #0e0e0e;
+  --color-on-primary: #4f3e00;
+  --color-on-tertiary-fixed-variant: #516171;
+  --color-on-tertiary-container: #475767;
+  --color-on-error: #490106;
+
+  --font-headline: "Newsreader", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    backdrop-filter: blur(20px);
+    background: rgba(37, 38, 38, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card:hover {
+    background: rgba(233, 195, 73, 0.05);
+    transform: translateY(-8px);
+  }
+  .scrolled-glass {
+    background: linear-gradient(135deg, rgba(37, 38, 38, 0.4) 0%, rgba(14, 14, 14, 0.1) 100%);
+    backdrop-filter: blur(20px);
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px rgba(233, 195, 73, 0.5);
+  cursor: pointer;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  background: rgba(230, 229, 225, 0.1);
+  height: 2px;
+  border-radius: 2px;
+}
+
+.rain-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.drop {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+  height: 120px;
+  position: absolute;
+  width: 1px;
+  animation: fall 1s linear infinite;
+}
+
+@keyframes fall {
+  to { margin-top: 100vh; }
+}
